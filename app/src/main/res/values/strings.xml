@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Enviador de Mails</string>
 
-    <string name="hello_world">Ingrese aqui su mail</string>
+    <string name="hello_world">Ingrese aqui un numero</string>
     <string name="action_settings">Settings</string>
-    <string name="btn_send_mail">Send E-mail</string>
+    <string name="btn_calcular">Calcular</string>
     <string name="error_empty_mail">No se permiten mails vacios!</string>
 </resources>

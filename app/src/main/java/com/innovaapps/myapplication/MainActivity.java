@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -18,25 +21,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //recupero texto
-        final EditText mailContent = (EditText) findViewById(R.id.mailcontent);
 
-        Button btn = (Button) findViewById(R.id.button2);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final String contenido = mailContent.getText().toString();
-                if (contenido.trim().length() == 0){
-                    Toast.makeText(MainActivity.this, R.string.error_empty_mail, Toast.LENGTH_SHORT).show();
-                } else {
-                    Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                            "mailto", "abc@gmail.com", null));
-                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Mail de Prueba");
-                    emailIntent.putExtra(Intent.EXTRA_TEXT, contenido);
-                    startActivity(Intent.createChooser(emailIntent, "Enviar mail..."));
-                }
-            }
-        });
+
+
     }
 
     @Override
@@ -59,5 +46,23 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void calcular(View view) {
+        //recupero texto
+        final EditText nro1 = (EditText) findViewById(R.id.numero_a);
+        final EditText nro2 = (EditText) findViewById(R.id.numero_b);
+        final EditText nro3 = (EditText) findViewById(R.id.numero_c);
+
+        int nro1int = Integer.parseInt(nro1.getText().toString());
+        int nro2int = Integer.parseInt(nro2.getText().toString());
+
+        nro3.setText(String.valueOf(nro1int+nro2int));
+        nro3.setVisibility(View.VISIBLE);
+
+        YoYo.with(Techniques.BounceInDown)
+                .duration(700)
+                .playOn(nro3);
+
     }
 }

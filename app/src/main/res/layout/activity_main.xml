@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,25 +8,52 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
 
-    <EditText android:hint="@string/hello_world"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/mailcontent" />
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="0.5"
-            android:drawableLeft="@drawable/ic_red_mail_send_icon"
+        <EditText android:hint="@string/hello_world"
+            android:layout_width="match_parent"
+            android:id="@+id/numero_a"
+            android:inputType="number"
             android:layout_height="wrap_content"
-            android:text="@string/btn_send_mail"
-            android:id="@+id/button2"
+             />
+
+        <EditText android:hint="@string/hello_world"
+            android:layout_width="match_parent"
+            android:id="@+id/numero_b"
+            android:layout_height="wrap_content"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:drawableLeft="@drawable/ic_red_mail_send_icon"
+                android:layout_height="wrap_content"
+                android:onClick="calcular"
+                android:textColor="@color/red"
+                android:text="@string/btn_calcular"
+                />
+        </LinearLayout>
+
+        <EditText
+            android:visibility="gone"
+            android:id="@+id/numero_c"
+            android:layout_width="match_parent"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            android:shadowColor="@color/blue"
+            android:shadowRadius="2"
+            android:layout_height="wrap_content"
             />
     </LinearLayout>
 
 
-</LinearLayout>
+</ScrollView>
